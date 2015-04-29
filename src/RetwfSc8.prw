@@ -257,7 +257,7 @@ User Function Retwfsc8(__aCookies,__aPostParms,__nProcID,__aProcParms,__cHTTPPag
 								
 							Endif
 			     Else
-					Return
+					Return '<img src="img/banner.png" width="774" height="247" alt="Ok" />'
 				EndIf
 				nCnt ++
 				
