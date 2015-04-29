@@ -190,10 +190,7 @@ User Function Retwfsc8(__aCookies,__aPostParms,__nProcID,__aProcParms,__cHTTPPag
 		Else //caso tenha sido rejeitado
 			
 			
-			aCab := {	{"C8_NUM"		,SC8->C8_NUM,NIL},;
-						{"C8_ITEM"		,SC8->C8_ITEM 	,NIL},;
-						{"C8_FORNECE"	,SC8->C8_FORNECE	,NIL},;
-						{"C8_LOJA"	    ,SC8->C8_LOJA	,NIL}}
+			aCab := {	{"C8_NUM"		,SC8->C8_NUM,NIL}}
 			
 			nCnt:=	1
 			While .T.
@@ -243,7 +240,14 @@ User Function Retwfsc8(__aCookies,__aPostParms,__nProcID,__aProcParms,__cHTTPPag
 												{"C8_FORNECE",		SC8->C8_FORNECE	,NIL},;
 												{"C8_LOJA",			SC8->C8_LOJA	,NIL}})
 								
-								MSExecAuto({|x,y,z| mata150(x,y,z)},aCab,aItem,5) //EXCLUI
+//								MSExecAuto({|x,y,z| mata150(x,y,z)},aCab,aItem,5) //EXCLUI
+
+								cQuery := " UPDATE "+RETSQLNAME("SC8")                                
+								cQuery += " SET D_E_L_E_T_='*', R_E_C_D_E_L_=R_E_C_N_O_ "
+								cQuery += " WHERE C8_NUM = '"+cNumSc8+"'  AND C8_FILIAL = '" + XFILIAL("SC8") "
+								cquery += "' AND C8_FORNECE = '"+cFornece+"' AND C8_LOJA = '"+cLoja+"' AND D_E_L_E_T_ = ' ' "
+
+								TcSqlExec(cQuery)
 								
 								If lMsErroAuto
 									ConOut("Erro na Exclusão do Participante, Fornecedor: "+SC8->(C8_FORNECE+C8_LOJA)+" Cotacao: "+SC8->C8_NUM)
