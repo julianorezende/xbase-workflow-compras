@@ -3,23 +3,23 @@
 #include "TbiCode.ch"
 
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Fonte      * COMRD001 * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014					  *
+* Fonte      * COMRD001 * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014	 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Descricão  * Envia WorkFlow de Aprovacao de Solicitacao de Compras																				  *
+* Descricão  * Envia WorkFlow de Aprovacao de Solicitacao de Compras																 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Uso        * 	Renovagro	- Modulo Compras 																										 *
+* Uso        * 	Renovagro	- Modulo Compras 																						 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Consultor  * Juliano Rezende Ribeiro 																												  *
+* Consultor  * Juliano Rezende Ribeiro 																								 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Criar Campo *   Nome	    Tipo	Tamanho 	Titulo	         OBS																				  *
-*             * C1_CODAPRO   C         6        Cod Aprovador 
+* Criar Campo *   Nome	    Tipo	Tamanho 	Titulo	         OBS																 *
+*             * C1_CODAPRO   C         6        Cod Aprovador																		 * 
 *------------------------------------------------------------------------------------------------------------------------------------*
 
 
 User Function COMRD001()
 
 Local   cSuperior:=_InfoUSR(__CUSERID )
-Local   cTotItem  := Strzero(Len(aCols),4)
+//Local   cTotItem  := Strzero(Len(aCols),4)
 Local _i
 Private cDiasA
 Private cDiasE  
@@ -78,13 +78,13 @@ Return(.T.)
 
 
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Fonte      * COMWF001 * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014					  *
+* Fonte      * COMWF001 * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014	 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Descricão  * Envia WorkFlow de Aprovacao de Solicitacao de Compras quando a aprovacao e feita por solicitacao.									  *
+* Descricão  * Envia WorkFlow de Aprovacao de Solicitacao de Compras quando a aprovacao e feita por solicitacao.					 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Uso        * 	Renovagro	- Modulo Compras 																										 *
+* Uso        * 	Renovagro	- Modulo Compras 																						 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Consultor  * Juliano Rezende Ribeiro 																												  *
+* Consultor  * Juliano Rezende Ribeiro 																								 *
 *------------------------------------------------------------------------------------------------------------------------------------*
 
 User Function COMWF001(cAprov)
@@ -93,10 +93,9 @@ User Function COMWF001(cAprov)
 //³Declaração de Variaveis³
 //ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 Local cMvAtt := GetMv("MV_WFHTML")
-Local cAprov := PswRet()[1][11]
 Local cMailSup :="" 
 Private oHtml
-
+cAprov := PswRet()[1][11]
 cAprovIni:=cAprov                        
 nPoscAprov:=1 
 cAprov:=Substr(cAprovIni,1,6)
@@ -194,13 +193,13 @@ Return()
 
 
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Fonte      * COMWF01a * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014					  *
+* Fonte      * COMWF01a * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014	 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Descricão  * Retor Workflow de Aprovacao de Solicitacao de Compras																				  *
+* Descricão  * Retor Workflow de Aprovacao de Solicitacao de Compras																 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Uso        * 	Renovagro	- Modulo Compras 																										 *
+* Uso        * 	Renovagro	- Modulo Compras 																						 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Consultor  * Juliano Rezende Ribeiro 																												  *
+* Consultor  * Juliano Rezende Ribeiro 																								 *
 *------------------------------------------------------------------------------------------------------------------------------------*
 
 User Function COMWF01a(oProcess)
@@ -215,7 +214,7 @@ Local cCodSol	:= oProcess:oHtml:RetByName("cCODUSR")
 Local cEmpresa  := oProcess:oHtml:RetByname("WFEMPRESA")
 Local cFilial   := oProcess:oHtml:RetByname("WFFILIAL")
 Local cMailSol 	:= UsrRetMail(cCodSol)
-Local cMailSup  := UsrRetMail(cAprov)
+//Local cMailSup  := UsrRetMail(cAprov)
 Private oHtml
 
 ConOut("Retorno da SC: Empresa:"+cEmpresa+" / Filial: "+cFilial+" / "+cNumSc)
@@ -331,13 +330,13 @@ PutMv("MV_WFHTML",cMvAtt)
 Return
 
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Fonte      * COMWF01b * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014					  *
+* Fonte      * COMWF01b * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014	 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Descricão  * Envia um Aviso para Aprovador apos periodo de TIMEOUT																				  *
+* Descricão  * Envia um Aviso para Aprovador apos periodo de TIMEOUT																 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Uso        * 	Renovagro	- Modulo Compras 																										 *
+* Uso        * 	Renovagro	- Modulo Compras 																						 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Consultor  * Juliano Rezende Ribeiro 																												  *
+* Consultor  * Juliano Rezende Ribeiro 																								 *
 *------------------------------------------------------------------------------------------------------------------------------------*
 
 User Function COMWF01b(oProcess)
@@ -423,13 +422,13 @@ PutMv("MV_WFHTML",cMvAtt)
 Return
 
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Fonte      * COMWF01c * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014					  *
+* Fonte      * COMWF01c * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014	 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Descricão  * Exclui a solicitacao apos um periodo de TIMEOUT																				  *
+* Descricão  * Exclui a solicitacao apos um periodo de TIMEOUT																		 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Uso        * 	Renovagro	- Modulo Compras 																										 *
+* Uso        * 	Renovagro	- Modulo Compras 																						 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Consultor  * Juliano Rezende Ribeiro 																												  *
+* Consultor  * Juliano Rezende Ribeiro 																								 *
 *------------------------------------------------------------------------------------------------------------------------------------*
 
 User Function COMWF01c(oProcess)
@@ -538,13 +537,13 @@ Return
 
 
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Fonte      * COMWF002 * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014					  *
+* Fonte      * COMWF002 * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014	 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Descricão  * Envia Workflow de Aprovacao de Solicitacao de Compras, quando a aprovacao e feita por ITEM											  *
+* Descricão  * Envia Workflow de Aprovacao de Solicitacao de Compras, quando a aprovacao e feita por ITEM							 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Uso        * 	Renovagro	- Modulo Compras 																										 *
+* Uso        * 	Renovagro	- Modulo Compras 																						 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Consultor  * Juliano Rezende Ribeiro 																												  *
+* Consultor  * Juliano Rezende Ribeiro 																								 *
 *------------------------------------------------------------------------------------------------------------------------------------*
 
 User Function COMWF002()
@@ -1036,13 +1035,13 @@ Return
 
 
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Fonte      * COMWF02a * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014					  *
+* Fonte      * COMWF02a * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014	 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Descricão  * Retor Workflow de Aprovacao de Solicitacao de Compras																				  *
+* Descricão  * Retor Workflow de Aprovacao de Solicitacao de Compras																 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Uso        * 	Renovagro	- Modulo Compras 																										 *
+* Uso        * 	Renovagro	- Modulo Compras 																						 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Consultor  * Juliano Rezende Ribeiro 																												  *
+* Consultor  * Juliano Rezende Ribeiro 																								 *
 *------------------------------------------------------------------------------------------------------------------------------------*
 
 
@@ -1053,8 +1052,8 @@ Local cNumSc	:= oProcess:oHtml:RetByName("Num")
 Local cItemSc	:= oProcess:oHtml:RetByName("Item")
 Local cSolicit	:= oProcess:oHtml:RetByName("Req")
 Local cEmissao	:= oProcess:oHtml:RetByName("Emissao")
-Local cDiasA	:= oProcess:oHtml:RetByName("diasA")
-Local cDiasE	:= oProcess:oHtml:RetByName("diasE")
+//Local cDiasA	:= oProcess:oHtml:RetByName("diasA")
+//Local cDiasE	:= oProcess:oHtml:RetByName("diasE")
 Local cCod		:= oProcess:oHtml:RetByName("CodProd")
 Local cDesc		:= oProcess:oHtml:RetByName("Desc")
 Local cAprov	:= oProcess:oHtml:RetByName("cAPROV")
@@ -1148,13 +1147,13 @@ PutMv("MV_WFHTML",cMvAtt)
 Return
 
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Fonte      * COMWF02b * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014					  *
+* Fonte      * COMWF02b * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014	 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Descricão  * Envia um Aviso para Aprovador apos periodo de TIMEOUT																				  *
+* Descricão  * Envia um Aviso para Aprovador apos periodo de TIMEOUT																 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Uso        * 	Renovagro	- Modulo Compras 																										 *
+* Uso        * 	Renovagro	- Modulo Compras 																						 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Consultor  * Juliano Rezende Ribeiro 																												  *
+* Consultor  * Juliano Rezende Ribeiro 																								 *
 *------------------------------------------------------------------------------------------------------------------------------------*
 
 User Function COMWF02b(oProcess)
@@ -1224,13 +1223,13 @@ PutMv("MV_WFHTML",cMvAtt)
 Return
 
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Fonte      * COMWF02c * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014					  *
+* Fonte      * COMWF02c * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014	 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Descricão  * Exclui a solicitacao apos um periodo de TIMEOUT																				  *
+* Descricão  * Exclui a solicitacao apos um periodo de TIMEOUT																		 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Uso        * 	Renovagro	- Modulo Compras 																										 *
+* Uso        * 	Renovagro	- Modulo Compras 																						 *
 *------------------------------------------------------------------------------------------------------------------------------------*
-* Consultor  * Juliano Rezende Ribeiro 																												  *
+* Consultor  * Juliano Rezende Ribeiro 																								 *
 *------------------------------------------------------------------------------------------------------------------------------------*
 
 User Function COMWF02c(oProcess)
@@ -1312,3 +1311,586 @@ Static Function _InfoUSR(__CUSERID )
 PswOrder(1)
 PswSeek( __CUSERID, .T. )  
 Return(PswRet()[1][11])    // Retorna vetor com informações do usuário
+
+
+#include "rwmake.ch"
+#include "TbiConn.ch"
+#include "TbiCode.ch"
+
+/*
+
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Fonte      * RETWFSC1 * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  20/01/2014   *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Descricão  *  Este constam as funcoes responsaveis para o tratamento de retorno da aprovacao e ou reprovacao da SC compras         *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Uso        * Compras			                     													                             *
+*------------------------------------------------------------------------------------------------------------------------------------*
+*Constultor  * Juliano Rezende Ribeiro																								 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+*/
+
+User Function Retwfsc1(__aCookies,__aPostParms,__nProcID,__aProcParms,__cHTTPPage)
+//Return 'DEU CERTO'
+
+	Private cBarra:=	Iif(IsSrvUnix(),"/","\")   
+	Private cEmpWin:=   Iif(IsSrvUnix(),"01","01")
+
+
+	cEmpresa:= U_RetriveParm (__aPostParms, "WFEMPRESA")
+	cFil_:= U_RetriveParm (__aPostParms, "WFFILIAL")
+	RESET ENVIRONMENT 
+	RpcSetType( 3 )
+	PREPARE ENVIRONMENT EMPRESA cEmpresa FILIAL cFil_ MODULO "COM"
+	RpcSetEnv( cEmpresa, cFil_,,,"COM")
+    
+	cNumSc1:= U_RetriveParm (__aPostParms, "CNUM")
+	cAprov:= U_RetriveParm (__aPostParms, "CAPROV")
+	cMotivo:=U_RetriveParm (__aPostParms, "CMOTIVO")
+	cCodUsr:=U_RetriveParm (__aPostParms, "CCODUSR")
+
+	PswOrder(1)    
+	PswSeek(cCodUsr,.t.)
+	aInfo   	:= PswRet(1)	
+	_cAprov := PswRet()[1][11]
+	cAprovIni:=_cAprov                        
+	nPoscAprov:=1 
+	_cAprov:=Substr(cAprovIni,1,6)                        
+	_cMailTo 	:= alltrim(aInfo[1,14])	
+
+	dbSelectArea("SC1")
+	dbSetOrder(1)
+	DbSeek(xfilial("SC1")+cNumSc1)
+	IF Empty(SC1->C1_APROV) .or. SC1->C1_APROV=="B"
+	
+		While !eof() .and. cNumSc1 == SC1->C1_NUM
+		   
+		    //ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+		    //³ Grava os campos obtendo os valores da linha lida do arquivo texto.  ³
+		    //ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+		    
+		    RecLock("SC1",.F.)                            
+		    SC1->C1_APROV	:= cAprov
+		    SC1->C1_OBS		+= cMotivo      
+		    SC1->C1_CODAPRO := _cAprov
+		    MSUnLock()
+	
+		    DbSelectArea("SC1")
+		    dbskip()
+		    
+		EndDo
+
+		DbSeek(xfilial("SC1")+cNumSc1)
+		IF FOUND()
+		
+			//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+			//³Inicia Envio de Mensagem de Aviso³
+			//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ    
+	
+			PutMv("MV_WFHTML","T")
+			oProcess:=TWFProcess():New("PEDCOM","WORKFLOW PARA APROVACAO DE SC")
+			If cAprov == "L" //Verifica se foi aprovado
+				oProcess:NewTask('Inicio',cBarra+"workflow"+cBarra+"htm"+cBarra+"comwf005.htm")
+			ElseIf cAprov == "R" //Verifica se foi rejeitado
+				oProcess:NewTask('Inicio',cBarra+"workflow"+cBarra+"htm"+cBarra+"comwf006.htm")
+			EndIf                 
+			PswOrder(1)
+			If PswSeek(SC1->C1_CODAPRO,.t.)
+				aInfo   	:= PswRet(1)
+				Req			:= aInfo[1,2]
+			Endif
+			oHtml   := oProcess:oHtml                        
+			oHtml:valbyname("Num"		, cNumSc1)
+	        oHtml:valbyname("Req"    	, Req)
+		    oHtml:valbyname("Emissao"   , SC1->C1_EMISSAO)
+		    oHtml:valbyname("Motivo"   , cMotivo)
+		
+			cQuery2 := " SELECT C1_ITEM, C1_PRODUTO, C1_DESCRI "
+			cQuery2 += " FROM "+RetSqlName('SC1')+" SC1"
+			cQuery2 += " WHERE C1_NUM = '"+cNumSc1+"' AND C1_FILIAL = '" + XFILIAL("SC1") + "' AND SC1.D_E_L_E_T_ = ' ' "
+			
+			dbUseArea(.T.,"TOPCONN", TCGenQry(,,cQuery2),"TRB", .F., .T.)
+		
+			If !TRB->(EOF())
+			
+				dbSelectArea("TRB")
+				dbGoTop()   
+				While !EOF()
+					aadd(oHtml:ValByName("it.Item")		, TRB->C1_ITEM)
+					aadd(oHtml:ValByName("it.Cod")		, TRB->C1_PRODUTO)
+					aadd(oHtml:ValByName("it.Desc")		, TRB->C1_DESCRI)
+					dbSkip()
+				End
+			EndIf
+			TRB->(dbCloseArea())
+		
+			//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+			//³Funcoes para Envio do Workflow³
+			//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+			//envia o e-mail
+			cMailSol 	:= UsrRetMail(cCodUsr)
+			cUser 			  := "Administrador"
+			oProcess:ClientName(cUser)
+			CONOUT("e-MAIL: "+cMailSol)
+			CONOUT("USERCOD "+cCodUsr)
+			oProcess:cTo	  := cMailSol 
+			If cAprov == "L" //Verifica se foi aprovado
+				oProcess:cSubject := "SC N°: "+cNumSc1+" - Aprovada"
+			ElseIf cAprov == "R" //Verifica se foi rejeitado
+				oProcess:cSubject := "SC N°: "+cNumSc1+" - Reprovada"
+			EndIf
+			oProcess:cBody    := ""
+			oProcess:bReturn  := ""
+			oProcess:Start()
+		
+			//RastreiaWF( ID do Processo, Codigo do Processo, Codigo do Status, Descricao Especifica, Usuario )
+			If cAprov == "L" //Verifica se foi aprovado
+				RastreiaWF(oProcess:fProcessID+'.'+oProcess:fTaskID,"PEDCOM",'100500',"APROVACAO DE WORKFLOW DE SC",cUsername)
+			ElseIf cAprov == "R" //Verifica se foi rejeitado
+				RastreiaWF(oProcess:fProcessID+'.'+oProcess:fTaskID,"PEDCOM",'100600',"REJEICAO DE WORKFLOW DE SC",cUsername)
+			EndIf
+		
+			oProcess:Free()
+			oProcess:Finish()
+			oProcess:= Nil                  
+			
+			//WFSendMail({cEmpAnt,cFilAnt})
+		ENDIF
+		
+		Else
+		
+		SC1JaRep() 
+	EndIf
+		
+	//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+	//³ O arquivo texto deve ser fechado, bem como o dialogo criado na fun- ³
+	//³ cao anterior.                                                       ³
+	//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+	
+Return '<img src="img/banner.png" width="774" height="247" alt="Ok" />'
+
+
+User Function RetriveParm (aParms, cVar)
+local i
+  For i := 1 To Len (aParms)
+    If aParms[i, 1] == cVar
+      Return aParms[i, 2]
+    EndIf
+  Next i
+  Return
+
+
+
+/*BEGINDOC
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³Funcao para checar se o Pedido já esta REPROVADO³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+ENDDOC*/
+Static Function SC1JaRep()
+	lRet:=.F.
+	DBSelectarea("SC1")                   // Posiciona a Solicitacao de compras
+	DbSetorder(1)
+	DbSeek(xfilial("SC1")+cNumSc1)
+	IF SC1->C1_APROV=="R" .OR. SC1->C1_APROV=="L"
+					//Envio WF avisando que o pedido ja foi REPROVADO
+					PutMv("MV_WFHTML","T")      
+					IF SC1->C1_APROV=="R"
+					oProcess:=TWFProcess():New("PEDCOM","WORKFLOW PARA REPROVACAO DE SC")
+					oProcess:NewTask('Inicio',cBarra+"workflow"+cBarra+"htm"+cBarra+"comwf006.htm")
+					Else 
+					oProcess:=TWFProcess():New("PEDCOM","WORKFLOW PARA APROVACAO DE SC")
+					oProcess:NewTask('Inicio',cBarra+"workflow"+cBarra+"htm"+cBarra+"comwf005.htm")
+					EndIf
+					PswOrder(1)    
+					If PswSeek(SC1->C1_CODAPRO,.t.)
+						aInfo   	:= PswRet(1)
+						Req			:= aInfo[1,2]                   
+//						_cMailTo 	:= alltrim(aInfo[1,14])
+					Endif                       
+					PswSeek(SC1->C1_USER,.t.)
+					_cAprov := PswRet()[1][11]
+					_cMailTo :="" 
+					cAprovIni:=_cAprov                        
+					nPoscAprov:=1 
+					_cAprov:=Substr(cAprovIni,1,6)
+					while _cAprov $ cAprovIni
+					      nPoscAprov+=7
+					      _cMailTo +=rtrim(UsrRetMail(_cAprov))  
+					      _cAprov:=Substr(cAprovIni,nPoscAprov,6)
+					      if _cAprov $ cAprovIni
+					      	_cMailTo +=";" 
+					      endif	   
+					enddo            
+										
+				
+					oHtml   := oProcess:oHtml                        
+					oHtml:valbyname("Num"		, cNumSc1)
+			        oHtml:valbyname("Req"    	, Req)
+				    oHtml:valbyname("Emissao"   , SC1->C1_EMISSAO)
+				    oHtml:valbyname("Motivo"   , cMotivo)
+				
+					cQuery2 := " SELECT C1_ITEM, C1_PRODUTO, C1_DESCRI "
+					cQuery2 += " FROM "+RetSqlName('SC1')+" SC1"
+					cQuery2 += " WHERE C1_NUM = '"+cNumSc1+"' AND C1_FILIAL = '" + XFILIAL("SC1") + "' AND SC1.D_E_L_E_T_ = ' ' "
+					
+					dbUseArea(.T.,"TOPCONN", TCGenQry(,,cQuery2),"TRB", .F., .T.)
+				
+					If !TRB->(EOF())
+					
+						dbSelectArea("TRB")
+						dbGoTop()   
+						While !EOF()
+							aadd(oHtml:ValByName("it.Item")		, TRB->C1_ITEM)
+							aadd(oHtml:ValByName("it.Cod")		, TRB->C1_PRODUTO)
+							aadd(oHtml:ValByName("it.Desc")		, TRB->C1_DESCRI)
+							dbSkip()
+						End
+					EndIf
+					TRB->(dbCloseArea())
+		
+					//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+					//³Funcoes para Envio do Workflow³
+					//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+					//envia o e-mail
+					//cMailSol 	:= UsrRetMail(cCodUsr)
+					cUser 			  := "Administrador"
+					oProcess:ClientName(cUser)
+					CONOUT("e-MAIL: "+_cMailTo)
+					CONOUT("USERCOD "+cAprov)
+					oProcess:cTo	  := _cMailTo                                            
+					IF SC1->C1_APROV=="R"
+						oProcess:cSubject := "A SOLICITACAO "+SC1->C1_NUM+" JA FOI REPROVADA PELO APROVADOR "+UPPER(Alltrim(Req))+"."
+					Else 
+						oProcess:cSubject := "A SOLICITACAO "+SC1->C1_NUM+" JA FOI APROVADA PELO APROVADOR "+UPPER(Alltrim(Req))+"."
+					EndIf	
+					oProcess:cBody    := ""
+					oProcess:bReturn  := ""
+					oProcess:Start()
+				
+					oProcess:Free()
+					oProcess:Finish()
+					oProcess:= Nil                  
+					//WFSendMail({cEmpAnt,cFilAnt})
+	
+	Endif
+Return(lRet)
+
+
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Fonte      * MT110BLO * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  17/04/2015   *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Descricão  *  PONTO DE ENTRADA NA APROVACAO DA SOLICITACAO DE COMPRAS															     *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Uso        * Compras			                     													                             *
+*------------------------------------------------------------------------------------------------------------------------------------*
+*Constultor  * Juliano Rezende Ribeiro																								 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+
+
+User Function MT110BLO()
+
+Local lRet1  := .T. 
+Local cAprovIni := ""
+
+
+PswOrder(1)
+pswSeek(SC1->C1_USER,.t.)
+cAprovIni := PswRet()[1][11] 
+pswSeek(__CUSERID,.t.)
+
+if __CUSERID $ cAprovIni
+	lRet1 := .T.
+else
+	MsgAlert("Usuário não autorizado a aprovar esta solicitação.","Atenção!")
+	lRet1 := .F.
+EndIf
+
+Return(lRet1)
+
+#include "protheus.ch" 
+
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Fonte      * MT110COR * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  17/04/2015   *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Descricão  *  PONTO DE ENTRADA NA APROVACAO DA SOLICITACAO DE COMPRAS																 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Uso        * Compras			                     													                             *
+*------------------------------------------------------------------------------------------------------------------------------------*
+*Constultor  * Juliano Rezende Ribeiro																								 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+           
+User Function MT110COR()   
+
+Local aAllUser	:= {}
+Local aAllGroup	:= {}      
+Local lret:=.T. 
+Local _j    
+
+Processa({||A085AllUser(@aAllUser,@aAllGroup)},,"Verificando Usuarios...") //STR0023  //"Verificando Usuarios..."                  
+
+DBSELECTAREA("SAI")  
+dbgotop()
+dbSetOrder(2)
+dbSeek(xFilial("SAI")+__CUSERID) 
+if __CUSERID==SAI->AI_USER
+	lRet := .T.
+else
+	lRet := .F.
+	DBSELECTAREA("SAI")
+	dbgotop()
+	dbSetOrder(1)
+	For _j:=1 to len(aAllGroup)
+		GROUPSOL:=aAllGroup[_j,1,1]
+		dbSeek(xFilial("SAI")+GROUPSOL)
+		if found()
+			lRet := .T.
+		Else
+			MsgAlert("Usuário/Grupo não esta cadastrado como solicitante!","Atenção!")
+			lRet := .F.
+			aRotina:={}
+		EndIf
+	Next
+	if lRet:=.F.
+		MsgAlert("Usuário/Grupo não esta cadastrado como solicitante!","Atenção!")
+		aRotina:={}
+	endif
+Endif
+
+Return(NIL)            
+
+
+Static Function A085AllUser(aAllUser,aAllGroup) 
+//Local cEmpsis:=cEmpAnt,cFilsis:=cFilAnt
+
+ProcRegua(4)
+IncProc()
+IncProc()
+aAllUser := AllUsers()
+IncProc()
+IncProc()
+aAllGroup := AllGroups()
+
+Return
+
+/*
+ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+±±ÉÍÍÍÍÍÍÍÍÍÍÑÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÑÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÑÍÍÍÍÍÍÍÍÍÍÍÍÍ»±±
+±±ºPrograma  ³MT110FIL  ºAutor  ³ON LINE      - JULIANO º Data ³  22/06/11   º±±
+±±ÌÍÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÏÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÏÍÍÍÍÍÍÍÍÍÍÍÍÍ¹±±
+±±ºDesc.     ³PONTO DE ENTRADA NO FILTRO DO MBROWE DE SOLICITACAO DE COMPRº±±
+±±º          ³                                                            º±±
+±±ÌÍÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹±±
+±±ºUso       ³ SIGACOM                       	                          º±±
+±±ÈÍÍÍÍÍÍÍÍÍÍÏÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼±±
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+*/
+
+
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Fonte      * MT110FIL * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014	 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Descricão  * Ponto de entrada no filtro da MBROWSE na solicitação de compra.														 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Uso        * 	Renovagro	- Modulo Compras 																						 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Consultor  * Juliano Rezende Ribeiro 																								 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+
+
+User Function MT110FIL()
+
+
+cRet := ""
+CPERG := "COMRD1"
+                 
+ValidPerg()
+SetKey( 121 ,{|| Pergunte("COMRD1",.T.)})
+
+Return (cRet)
+
+/*
+ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+±±ÉÍÍÍÍÍÍÍÍÍÍÑÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÑÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÑÍÍÍÍÍÍÍÍÍÍÍÍÍ»±±
+±±ºPrograma  ³ValidPerg ºAutor  ³ON LINE      - JULIANO º Data ³  22/06/11   º±±
+±±ÌÍÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÏÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÏÍÍÍÍÍÍÍÍÍÍÍÍÍ¹±±
+±±ºDesc.     ³Cria pergunta no e o help do SX1                            º±±
+±±º          ³                                                            º±±
+±±ÌÍÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹±±
+±±ºUso       ³ SIGACOM                                                    º±±
+±±ÈÍÍÍÍÍÍÍÍÍÍÏÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼±±
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+*/
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Fonte      * VALIDPERG * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014	 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Descricão  * Cria pergunta e help no SX1 referente a solicitação de compras.														 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Uso        * 	Renovagro	- Modulo Compras 																						 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Consultor  * Juliano Rezende Ribeiro 																								 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+
+
+
+Static Function ValidPerg()
+
+Local cKey := ""
+Local aHelpEng := {}
+Local aHelpPor := {}
+Local aHelpSpa := {}
+
+//PutSx1(cGrupo,cOrdem,CPERGunt             ,cPerSpa               ,cPerEng               ,cVar     ,cTipo ,nTamanho,nDecimal,nPresel,cGSC,cValid,cF3, cGrpSxg    ,cPyme,cVar01    ,cDef01     ,cDefSpa1,cDefEng1,cCnt01,cDef02  ,cDefSpa2,cDefEng2,cDef03,cDefSpa3,cDefEng3,cDef04,cDefSpa4,cDefEng4,cDef05,cDefSpa5,cDefEng5,aHelpPor,aHelpEng,aHelpSpa,cHelp)
+PutSx1(CPERG,"01"   ,"N° de Pedidos?      ",""                    ,""                    ,"mv_ch1","N"   ,02      ,0       ,0      , "G",""    ,"" ,""         ,""   ,"mv_par01",""    	,""      ,""      ,""    ,""	   	,""     ,""      ,""    	,""      ,""      ,""    ,""      ,""     ,""    ,""      ,""      ,""      ,""      ,""      ,"")
+PutSx1(CPERG,"02"   ,"N° de Fornecedores? ",""                    ,""                    ,"mv_ch2","N"   ,02      ,0       ,0      , "G",""    ,"" ,""         ,""   ,"mv_par02",""       ,""      ,""      ,""    ,""		,""     ,""      ,""		,""      ,""      ,""    ,""      ,""     ,""    ,""      ,""     ,""      ,""      ,""      ,"")
+PutSx1(CPERG,"03"   ,"Fornec Prod/Grupo?  ",""                    ,""                    ,"mv_ch3","N"   ,01      ,0       ,0      , "C",""    ,"" ,""         ,""   ,"mv_par03","Produto",""      ,""      ,""    ,"Grupo" 	,""     ,""      ,""    	,""      ,""      ,""    ,""      ,""     ,""    ,""      ,""      ,""      ,""      ,""      ,"")
+PutSx1(CPERG,"04"   ,"Aprova por Item/Sol?",""                    ,""                    ,"mv_ch4","N"   ,01      ,0       ,0      , "C",""    ,"" ,""         ,""   ,"mv_par04","Item"   	,""      ,""      ,""    ,"Solicita",""     ,""      ,""    	,""      ,""      ,""    ,""      ,""     ,""    ,""      ,""      ,""      ,""      ,""      ,"")
+
+cKey     := "P.COMRD0101."
+aHelpEng := {}
+aHelpPor := {}
+aHelpSpa := {}
+aAdd(aHelpEng,"")
+aAdd(aHelpEng,"")
+aAdd(aHelpPor,"Informe o número de Pedidos que deseja ")
+aAdd(aHelpPor,"imprimir.    ")
+aAdd(aHelpSpa,"")
+aAdd(aHelpSpa,"")
+PutSX1Help(cKey,aHelpPor,aHelpEng,aHelpSpa)
+
+cKey     := "P.COMRD0102."
+aHelpEng := {}
+aHelpPor := {}
+aHelpSpa := {}
+aAdd(aHelpEng,"")
+aAdd(aHelpEng,"")
+aAdd(aHelpPor,"Informe o numero de Fornecedores que ")
+aAdd(aHelpPor,"deseja imprimir.   ")
+aAdd(aHelpSpa,"")
+aAdd(aHelpSpa,"")
+PutSX1Help(cKey,aHelpPor,aHelpEng,aHelpSpa)
+
+cKey     := "P.COMRD0103."
+aHelpEng := {}
+aHelpPor := {}
+aHelpSpa := {}
+aAdd(aHelpEng,"")
+aAdd(aHelpEng,"")
+aAdd(aHelpPor,"Escolha se o Fornecedor será escolhido")
+aAdd(aHelpPor,"por Produto ou Grupo")
+aAdd(aHelpSpa,"")
+aAdd(aHelpSpa,"")
+PutSX1Help(cKey,aHelpPor,aHelpEng,aHelpSpa)
+
+cKey     := "P.COMRD0104."
+aHelpEng := {}
+aHelpPor := {}
+aHelpSpa := {}
+aAdd(aHelpEng,"")
+aAdd(aHelpEng,"")
+aAdd(aHelpPor,"Escolha se a aprovacao da Solilitação")
+aAdd(aHelpPor,"será por ITEM ou por SOLICITAÇÃO.")
+aAdd(aHelpSpa,"")
+aAdd(aHelpSpa,"")
+PutSX1Help(cKey,aHelpPor,aHelpEng,aHelpSpa)
+
+Return
+
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Fonte      * MT110TOK * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014	 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Descricão  * Ponto de entrada para envio de email para aprovacao da solicitacao de compra											 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Uso        * 	Renovagro	- Modulo Compras 																						 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Consultor  * Juliano Rezende Ribeiro 																								 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+
+User Function MT110TOK() 
+
+	Local lret:=.T.
+	Local nPosprd:=ascan(aheader, {|x| alltrim(x[2]) == "C1_PRODUTO"})
+	Local lHelp:=.T.
+	
+	lRet:=	MAVLDSOLIC(ACOLS[N,nPosprd],usrRetGrp(),RetcodUsr(),lHelp) 
+	
+Return(lret)
+
+
+/*
+
+User Function MT110TOK()
+Local aArea := GetArea()
+Local lRet	:= .F.
+
+
+//If !(Alltrim(SC1->C1_CODAPRO) == "")   
+ 	lRet := .T.
+
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³Envia Workflow para aprovacao da Solicitacao de Compras ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+If INCLUI .OR. ALTERA //Verifica se e Inclusao ou Alteracao da Solicitacao
+	MsgRun("Enviando Workflow para Aprovador da Solicitação, Aguarde...","",{|| CursorWait(), U_COMRD001() ,CursorArrow()})
+EndIf
+
+//Endif	
+
+RestArea(aArea)
+
+Return(lRet) 
+
+
+*/
+
+
+#INCLUDE "PROTHEUS.CH"
+#INCLUDE "TBICONN.CH"
+#INCLUDE "RWMAKE.CH"
+#INCLUDE "FILEIO.CH"
+#INCLUDE "TOPCONN.CH"   
+#INCLUDE "Ap5Mail.ch"
+
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Fonte      * M110STTS * Autor  * CONSULTORIA ON LINE   * Benedic, Domine Deus, in hac societate quae facit.	Data *  16/04/2014	 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Descricão  * Ponto de entrada para gravar campo memo.																				 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Uso        * 	Renovagro	- Modulo Compras 																						 *
+*------------------------------------------------------------------------------------------------------------------------------------*
+* Consultor  * Juliano Rezende Ribeiro 																												  *
+*------------------------------------------------------------------------------------------------------------------------------------*
+
+User Function M110STTS()
+
+Local aArea     := GetArea()
+          
+//MSMM(SC1->C1_CODOBS,,,aCols[n][aScan(aHeader,{|x| UPPER(AllTrim(x[2]))=="C1_OBSMEMO" })],1,,,"SC1","C1_CODOBS")    
+
+If INCLUI .OR. ALTERA //Verifica se e Inclusao ou Alteracao da Solicitacao   
+//    MSMM(SC1->C1_CODOBS,,,aCols[n][aScan(aHeader,{|x| UPPER(AllTrim(x[2]))=="C1_OBSMEMO" })],1,,,"SC1","C1_CODOBS")    
+	MsgRun("Enviando Workflow para Aprovador da Solicitação, Aguarde...","",{|| CursorWait(), U_COMRD001() ,CursorArrow()})    
+//	RecLock("SC1",.F.)
+//	SC1->C1_APROV:="B"
+//	MsUnlock()     
+
+
+// inicio             
+cNumSC := SC1->C1_NUM
+cQuery := " UPDATE "+RETSQLNAME("SC1")                                
+cQuery += " SET C1_APROV = 'B' "
+cQuery += " WHERE C1_NUM = '"+cNumSC+"'  AND C1_FILIAL = '" + XFILIAL("SC1") + "' AND D_E_L_E_T_ = ' ' "
+
+TcSqlExec(cQuery)
+//TCREFRESH(RetSqlName("SC1"))
+
+
+//fim
+EndIf
+
+RestArea(aArea)
+
+Return .T.

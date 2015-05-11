@@ -1,0 +1,361 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<base href="http://189.112.89.115:8888/" />
+<!-- saved from url=(0022)http://internet.e-mail --><!-- saved from url=(0022)http://internet.e-mail -->
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+  
+  <meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+  <title>Aprovação de Pedido de Compra</title>
+
+  
+</head><body bgproperties="fixed">
+<form action="u_Retwfsc7.apl" method="post" name="Form1" pbzloc="178"><input name="fornecedor" type="hidden" value="%fornecedor%" /> <input name="cAprov" type="hidden" value="%cAprov%" /> <input name="cMailap" type="hidden" value="%cMailap%" />
+<table style="height: 1454px; width: 1430px" summary="">
+	<tbody>
+		<tr>
+			<td style="height: 1450px; width: 1422px">&nbsp;
+			<table border="0" style="height: 597px; width: 1437px">
+				<tbody>
+					<tr>
+						<td width="657">&nbsp;
+						<table border="0" style="height: 226px; width: 1378px">
+							<tbody>
+								<tr>
+									<td colspan="2" style="height: 24px; width: 630px">&nbsp;
+									<p style="height: 64px; text-align: left; margin-top: 0px"><img src="img/logo.png" /></p>
+
+									<blockquote>
+									<blockquote>
+									<blockquote>
+									<blockquote>
+									<p><font face="Arial" size="4"><b>Pedido de Compra </b>: %pedido%</font></p>
+
+									<p><font face="Arial" size="4"><b>Comprador </b>: %comprador%</font></p>
+									</blockquote>
+									</blockquote>
+									</blockquote>
+									</blockquote>
+									</td>
+								</tr>
+								<tr>
+									<td height="24" valign="top" width="315"><font face="Arial" size="2"><b>Fornecedor</b> : %fornecedor% - %lb_nome% </font></td>
+									<td height="24" valign="top" width="315"><font face="Arial" size="2"><b>Emissao</b> : %emissao%</font></td>
+								</tr>
+								<tr>
+									<td colspan="2" height="24" valign="top" width="624"><font face="Arial" size="2"><b>Cond. Pagto. :</b>%lb_cond% </font></td>
+								</tr>
+							</tbody>
+						</table>
+
+						<p><font color="#0000ff" face="Arial"><b>Itens</b></font></p>
+
+						<table border="1" style="height: 126px; text-align: left; margin-left: auto; width: 1334px; margin-right: auto">
+							<tbody>
+								<tr>
+									<td style="height: 18px; width: 190px"><font face="Arial">Item</font></td>
+									<td style="height: 18px; width: 190px"><font face="Arial">Produto</font></td>
+									<td style="height: 18px; width: 190px"><font face="Arial">Quantidade</font></td>
+									<td style="height: 18px; width: 190px">
+									<div align="center"><font face="Arial">Unid</font></div>
+									</td>
+									<td style="width: 190px">Observa&ccedil;&atilde;o</td>
+									<td style="height: 18px; width: 190px"><font face="Arial">Vlr.Unit</font></td>
+									<td style="height: 18px; text-align: right; width: 190px">Vlr. Total</td>
+								</tr>
+								<tr>
+									<td><font face="Arial" size="2">%it.item%</font></td>
+									<td><font face="Arial" size="2">%it.codigo% - %it.descricao% </font></td>
+									<td align="center"><font face="Arial" size="2">%it.quant%</font></td>
+									<td align="center"><font face="Arial" size="2">%it.unid%</font></td>
+									<td align="right">
+									<div align="left">%it.observ%</div>
+									</td>
+									<td align="right">%it.preco%</td>
+									<td align="right" style="text-align: right">%it.total%</td>
+								</tr>
+								<tr>
+									<td colspan="6" style="text-align: left">
+									<p align="right"><font face="Arial">Valor Total:</font></p>
+									</td>
+									<td align="right" style="text-align: right">%lbvalor%</td>
+								</tr>
+								<tr>
+									<td colspan="6">
+									<p align="right"><font face="Arial">Valor Frete:</font></p>
+									</td>
+									<td style="text-align: right">%lbfrete%</td>
+								</tr>
+								<tr>
+									<td colspan="6">
+									<p align="right"><font face="Arial">Valor Total + IPI:</font></p>
+									</td>
+									<td style="text-align: right">%lbtotal%</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<h4><font color="#0000ff" face="Arial"><strong>APROVA&Ccedil;&Atilde;O:</strong> </font></h4>
+
+						<p align="left"><font face="Arial"><input checked="checked" name="Aprovacao" type="radio" value="%aprovacao%S" />Sim.<br />
+						<input name="Aprovacao" type="radio" value="%aprovacao%N" />N&atilde;o. (Favor especificar motivo)</font></p>
+
+						<p align="left"><font face="Arial" size="2"><b>Motivo:<br />
+						&nbsp;</b></font> <font face="Arial" size="2"><textarea cols="158" name="LBMOTIVO" rows="4"> </textarea> </font></p>
+
+						<p style="height: 26px">%botoes%<br />
+						&nbsp;</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table border="0" cellpadding="0" cellspacing="0" style="height: 800px; width: 1356px"><!--DWLayoutTable-->
+				<tbody>
+					<tr>
+						<td align="center" height="17" valign="top" width="1151"><span class="style12"><font face="Verdana, Arial, Helvetica, sans-serif">COTA&Ccedil;&Otilde;ES DE COMPRA - %Num% - %Item1% </font></span></td>
+					</tr>
+					<tr>
+						<td height="20" valign="top">
+						<table border="1" style="height: 102px; width: 1430px"><!--DWLayoutTable-->
+							<tbody>
+								<tr>
+									<td bgcolor="#5d5d5d" colspan="17" height="18" style="width: 44px"><span class="style36">Ultimas Cota&ccedil;&otilde;es </span></td>
+								</tr>
+								<tr>
+									<td height="20" style="text-align: left; width: 62px" valign="middle"><span class="style45">Numero </span></td>
+									<td style="text-align: left; width: 67px" valign="middle"><span class="style45">Item </span></td>
+									<td style="text-align: left; width: 52px" valign="middle"><span class="style45">C&oacute;digo Fornecedor </span></td>
+									<td style="text-align: left; width: 50px" valign="middle"><span class="style45">Loja </span></td>
+									<td nowrap="nowrap" style="width: 131px" valign="middle"><span class="style45">Nome </span></td>
+									<td style="text-align: left; width: 44px" valign="middle"><span class="style45">Quantidade </span></td>
+									<td style="text-align: left" valign="middle" width="57"><span class="style45">Unid.Medida </span></td>
+									<td style="text-align: left" valign="middle" width="69"><span class="style45">Vlr. Unit&aacute;rio </span></td>
+									<td style="text-align: left" valign="middle" width="72"><span class="style45">Valor Total </span></td>
+									<td style="text-align: left" valign="middle" width="60"><span class="style45">Emiss&atilde;o</span></td>
+									<td align="center" valign="middle" width="71"><span class="style45">Necessidade</span></td>
+									<td style="text-align: left" valign="middle" width="66"><span class="style45">Prazo </span></td>
+									<td style="text-align: left" valign="middle" width="69"><span class="style45">Condi&ccedil;&otilde;es</span></td>
+									<td style="text-align: left" valign="middle" width="84"><span class="style45">Ganhadora </span></td>
+									<td style="text-align: left" valign="middle" width="84"><span class="style45">Motivo </span></td>
+								</tr>
+								<tr>
+									<td align="center" height="16" style="width: 62px" valign="middle"><span class="style46">%itc.NumP% </span></td>
+									<td align="center" style="width: 67px" valign="middle"><span class="style46">%itc.ItemP%</span></td>
+									<td align="center" style="width: 52px" valign="middle"><span class="style46">%itc.CodP% </span></td>
+									<td align="center" style="width: 50px" valign="middle"><span class="style46">%itc.LjP% </span></td>
+									<td nowrap="nowrap" style="width: 131px" valign="middle"><span class="style46">%itc.NomeP%</span></td>
+									<td align="center" style="width: 44px" valign="middle"><span class="style46">%itc.QtdeP%</span></td>
+									<td align="center" valign="middle"><span class="style46">%itc.UMP% </span></td>
+									<td align="right" valign="middle"><span class="style46">%itc.VlrUnP%</span></td>
+									<td align="right" valign="middle"><span class="style46">%itc.VlrTotP%</span></td>
+									<td align="center" valign="middle"><span class="style46">%itc.EmiP% </span></td>
+									<td align="center" valign="middle"><span class="style46">%itc.NecP% </span></td>
+									<td align="center" valign="middle" width="66"><span class="style46">%itc.PraP% </span></td>
+									<td align="center" valign="middle"><span class="style46">%itc.CondP%</span></td>
+									<td align="center" valign="middle"><span class="style46">%itc.Motfecha%</span></td>
+									<td align="center" valign="middle"><span class="style46">%itc.Motivo%</span></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td height="20" valign="top">
+						<table border="1" style="height: 130px; width: 1430px"><!--DWLayoutTable-->
+							<tbody>
+								<tr>
+									<td bgcolor="#006600" colspan="13" height="18" style="width: 218px" valign="middle"><span class="style32"><strong>Saldos em Estoque</strong> </span></td>
+								</tr>
+								<tr>
+									<td style="text-align: left" valign="middle"><span class="style33">Item </span></td>
+									<td nowrap="nowrap" valign="middle"><span class="style33">C&oacute;digo Produto </span></td>
+									<td nowrap="nowrap" valign="middle"><span class="style33">Descri&ccedil;&atilde;o</span></td>
+									<td style="height: 28px; text-align: center; width: 18px"><span class="style33">Saldo Atual </span></td>
+									<td align="center" style="height: 28px; width: 151px" valign="middle"><span class="style33">Ponto de Pedido </span></td>
+									<td align="center" style="height: 28px; width: 143px" valign="middle"><span class="style33">Saldo da Solicita&ccedil;&atilde;o </span></td>
+									<td align="center" style="height: 28px; width: 123px" valign="middle"><span class="style33">Unid. de Medida </span></td>
+									<td align="center" style="height: 28px" valign="middle" width="64"><span class="style33">Armaz&eacute;m</span></td>
+									<td align="center" style="height: 28px" valign="middle" width="91"><span class="style33">Quant. Por Embalagem </span></td>
+									<td align="center" style="height: 28px" valign="middle" width="93"><span class="style33">Ultimo Pre&ccedil;o de Compra </span></td>
+									<td align="center" style="height: 28px" valign="middle" width="49"><span class="style33">Lead Time </span></td>
+									<td align="center" style="height: 28px" valign="middle" width="85"><span class="style33">Data da Necessidade </span></td>
+									<td align="center" style="height: 28px" valign="middle" width="94"><span class="style33">Data para Comprar </span></td>
+								</tr>
+								<tr>
+									<td style="text-align: left" valign="middle"><span class="style34">%Item% </span></td>
+									<td nowrap="nowrap" valign="middle"><span class="style34">%CodProd% </span></td>
+									<td nowrap="nowrap" valign="middle"><span class="style34">%Desc% </span></td>
+									<td style="height: 52px; text-align: center; width: 18px" valign="middle"><span class="style34">%SaldoAtu% </span></td>
+									<td align="center" style="height: 52px; width: 151px" valign="middle"><span class="style34">%EstMin% </span></td>
+									<td align="center" style="height: 52px; width: 143px" valign="middle"><span class="style34">%QuantSol% </span></td>
+									<td align="center" style="height: 52px; width: 123px" valign="middle"><span class="style34">%UM% </span></td>
+									<td align="center" style="height: 52px" valign="middle"><span class="style34">%Local% </span></td>
+									<td align="center" style="height: 52px" valign="middle"><span class="style34">%QuantEmb% </span></td>
+									<td align="center" style="height: 52px" valign="middle"><span class="style34">%UPRC% </span></td>
+									<td align="center" style="height: 52px" valign="middle"><span class="style34">%Lead% </span></td>
+									<td align="center" style="height: 52px" valign="middle"><span class="style34">%DataNec% </span></td>
+									<td align="center" style="height: 52px" valign="middle"><span class="style34">%DataCom% </span></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td height="21" valign="top">
+						<table border="1" style="height: 30px; width: 1432px"><!--DWLayoutTable-->
+							<tbody>
+								<tr>
+									<td height="16" width="1200"><span class="style33">Observa&ccedil;&otilde;es: %Obs% </span></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td height="14" valign="top">
+						<table border="1" style="height: 82px; width: 1433px"><!--DWLayoutTable-->
+							<tbody>
+								<tr>
+									<td bgcolor="#663300" colspan="13" height="18" valign="middle"><span class="style36">Consumo dos Ultimos 12 Meses </span></td>
+								</tr>
+								<tr>
+									<td align="center" height="16" valign="middle" width="70"><span class="style43">%Mes1% </span></td>
+									<td align="center" valign="middle" width="70"><span class="style43">%Mes2% </span></td>
+									<td align="center" valign="middle" width="70"><span class="style43">%Mes3% </span></td>
+									<td align="center" valign="middle" width="70"><span class="style43">%Mes4% </span></td>
+									<td align="center" valign="middle" width="70"><span class="style43">%Mes5% </span></td>
+									<td align="center" valign="middle" width="70"><span class="style43">%Mes6% </span></td>
+									<td align="center" valign="middle" width="70"><span class="style43">%Mes7% </span></td>
+									<td align="center" valign="middle" width="70"><span class="style43">%Mes8% </span></td>
+									<td align="center" valign="middle" width="70"><span class="style43">%Mes9% </span></td>
+									<td align="center" valign="middle" width="70"><span class="style43">%Mes10% </span></td>
+									<td align="center" valign="middle" width="70"><span class="style43">%Mes11% </span></td>
+									<td align="center" valign="middle" width="82"><span class="style43">%Mes12% </span></td>
+									<td align="center" valign="middle" width="66"><span class="style43">M&eacute;dia C </span></td>
+								</tr>
+								<tr>
+									<td align="center" height="16" valign="middle"><span class="style44">%CMes1% </span></td>
+									<td align="center" valign="middle"><span class="style44">%CMes2% </span></td>
+									<td align="center" valign="middle"><span class="style44">%CMes3% </span></td>
+									<td align="center" valign="middle"><span class="style44">%CMes4% </span></td>
+									<td align="center" valign="middle"><span class="style44">%CMes5% </span></td>
+									<td align="center" valign="middle"><span class="style44">%CMes6% </span></td>
+									<td align="center" valign="middle"><span class="style44">%CMes7% </span></td>
+									<td align="center" valign="middle"><span class="style44">%CMes8% </span></td>
+									<td align="center" valign="middle"><span class="style44">%CMes9% </span></td>
+									<td align="center" valign="middle"><span class="style44">%CMes10% </span></td>
+									<td align="center" valign="middle"><span class="style44">%CMes11% </span></td>
+									<td align="center" valign="middle"><span class="style44">%CMes12% </span></td>
+									<td align="center" valign="middle"><span class="style44"><strong>%MedC%</strong> </span></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td height="20" valign="top">
+						<table border="1"><!--DWLayoutTable-->
+							<tbody>
+								<tr>
+									<td bgcolor="#5d5d5d" colspan="16" height="18"><span class="style36">&Uacute;ltimos Pedidos </span></td>
+								</tr>
+								<tr>
+									<td align="center" valign="middle"><span class="style45">N&uacute;mero</span></td>
+									<td align="center" valign="middle"><span class="style45">Item </span></td>
+									<td align="center" valign="middle"><span class="style45">C&oacute;digo Fornecedor </span></td>
+									<td align="center" valign="middle"><span class="style45">Loja </span></td>
+									<td nowrap="nowrap" valign="middle"><span class="style45">Nome </span></td>
+									<td align="center" valign="middle"><span class="style45">Quantidade </span></td>
+									<td align="center" valign="middle"><span class="style45">Unid. Medida </span></td>
+									<td align="center" valign="middle"><span class="style45">Vlr. Unit&aacute;rio </span></td>
+									<td align="center" valign="middle"><span class="style45">Valor Total </span></td>
+									<td align="center" valign="middle"><span class="style45">Emiss&atilde;o</span></td>
+									<td align="center" valign="middle"><span class="style45">Necessidade</span></td>
+									<td align="center" valign="middle"><span class="style45">Prazo </span></td>
+									<td align="center" valign="middle"><span class="style45">Condi&ccedil;&atilde;o</span></td>
+									<td align="center" valign="middle"><span class="style45">Qtde Entregue </span></td>
+									<td align="center" valign="middle"><span class="style45">Saldo Res. </span></td>
+									<td align="center" valign="middle"><span class="style45">Eli. </span></td>
+								</tr>
+								<tr>
+									<td align="center" valign="middle"><span class="style46">%it0.NumP% </span></td>
+									<td align="center" valign="middle"><span class="style46">%it0.ItemP%</span></td>
+									<td align="center" valign="middle"><span class="style46">%it0.CodP% </span></td>
+									<td align="center" valign="middle"><span class="style46">%it0.LjP% </span></td>
+									<td nowrap="nowrap" valign="middle"><span class="style46">%it0.NomeP%</span></td>
+									<td align="center" valign="middle"><span class="style46">%it0.QtdeP%</span></td>
+									<td align="center" valign="middle"><span class="style46">%it0.UMP% </span></td>
+									<td align="right" valign="middle"><span class="style46">%it0.VlrUnP%</span></td>
+									<td align="right" valign="middle"><span class="style46">%it0.VlrTotP%</span></td>
+									<td align="center" valign="middle"><span class="style46">%it0.EmiP% </span></td>
+									<td align="center" valign="middle"><span class="style46">%it0.NecP% </span></td>
+									<td align="center" valign="middle" width="66"><span class="style46">%it0.PraP%D</span></td>
+									<td align="center" valign="middle"><span class="style46">%it0.CondP%</span></td>
+									<td align="center" valign="middle"><span class="style46">%it0.QtdeEntP%</span></td>
+									<td align="center" valign="middle"><span class="style46">%it0.SalP% </span></td>
+									<td align="center" valign="middle"><span class="style46">%it0.EliP% </span></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td height="17" valign="top">
+						<table border="1" style="height: 82px; width: 1430px"><!--DWLayoutTable-->
+							<tbody>
+								<tr>
+									<td bgcolor="#000000" colspan="11" height="17"><strong><span class="style32">Fornecedores</span> </strong></td>
+								</tr>
+								<tr>
+									<td height="17" valign="middle" width="74"><strong>C&oacute;digo</strong></td>
+									<td valign="middle" width="56"><strong>Loja</strong></td>
+									<td valign="middle" width="142"><strong>Nome</strong></td>
+									<td align="center" valign="middle" width="91"><strong>Telefone</strong></td>
+									<td align="center" valign="middle" width="138"><strong>Contato</strong></td>
+									<td align="center" valign="middle" width="91"><strong>Fax</strong></td>
+									<td align="center" valign="middle" width="91"><strong>Ul. Compra </strong></td>
+									<td align="center" valign="middle" width="128"><strong>Munic&iacute;pio </strong></td>
+									<td align="center" valign="middle" width="77"><strong>UF</strong></td>
+									<td align="center" valign="middle" width="66"><strong>Ris</strong></td>
+									<td align="center" valign="middle" width="121"><strong>Cod. no Fornec. </strong></td>
+								</tr>
+								<tr>
+									<td height="17" nowrap="nowrap" valign="middle">%it1.CodF%</td>
+									<td nowrap="nowrap" valign="middle">%it1.LjF%</td>
+									<td nowrap="nowrap" valign="middle">%it1.NomeF%</td>
+									<td align="center" nowrap="nowrap" valign="middle">%it1.TelF%</td>
+									<td align="center" nowrap="nowrap" valign="middle">%it1.ContF%</td>
+									<td align="center" nowrap="nowrap" valign="middle">%it1.FaxF%</td>
+									<td align="center" nowrap="nowrap" valign="middle">%it1.UlComF%</td>
+									<td align="center" nowrap="nowrap" valign="middle">%it1.MunicF%</td>
+									<td align="center" nowrap="nowrap" valign="middle">%it1.UFF%</td>
+									<td align="center" nowrap="nowrap" valign="middle">%it1.RisF%</td>
+									<td align="center" nowrap="nowrap" valign="middle">%it1.CodForF%</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<p class="style49"><strong>Aten&ccedil;&atilde;o </strong>: Este Pedido de Compras deve ser Aprovado / Reprovado dentro de <strong>%diasE% </strong>dias , ou ser&aacute; automaticamente excluido. <input name="hiddenField" type="hidden" value="%diasA%" /></p>
+
+						<table border="0" style="height: 98px; width: 1428px">
+							<tbody>
+								<tr>
+									<td pbzloc="180" style="height: 22px; width: 1140px">&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<p class="style49">&nbsp;</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</form>
+</body>
+</html>

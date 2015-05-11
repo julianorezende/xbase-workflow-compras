@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<base href="http://189.112.89.115:8888/" />
+	<title>Cota&ccedil;&atilde;o de Pre&ccedil;os</title>
+	<meta content="en-us" http-equiv="Content-Language" />
+	<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type" />
+	<meta content="FrontPage.Editor.Document" name="ProgId" />
+	<meta content="Microsoft FrontPage Express 2.0" name="GENERATOR" />
+</head>
+<body bgproperties="fixed" style="background-color: rgb(255,255,255)">
+<form action="u_retwfsc8.apl" method="post" name="Form1">
+<div style="text-align: left"><input name="C1_USER" type="hidden" value="%C1_USER%" /></div>
+
+<table border="1" style="width: 100%">
+	<tbody>
+		<tr>
+			<td rowspan="3" style="height: 1px; width: 552px; background-color: #ffffff"><img src="img/logo.png" /><br />
+			<font face="Arial" size="2">PREZADOS SENHORES.<br />
+			%A2_NOME%&nbsp;&nbsp;&nbsp; (%C8_FORNECE% - %C8_LOJA%)<br />
+			%A2_END%,&nbsp; %A2_NR_END%<br />
+			%A2_BAIRRO%&nbsp; -&nbsp; %A2_MUN%<br />
+			Fone: %A2_TEL%<br />
+			Fax : %A2_FAX%</font><br />
+			<br />
+			<font face="Arial" size="2">Solicitamos de V. Sas, cota&ccedil;&atilde;o de pre&ccedil;os para os produtos discriminados conforme os padr&otilde;es abaixo estabelecidos:</font></td>
+			<td style="height: 1px; width: 126px; background-color: #ffffff">
+			<p align="right"><font face="Arial" size="3"><b>Cota&ccedil;&atilde;o n&ordm; </b>: %c8_num%</font></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height: 1px; width: 126px; background-color: #ffffff"><strong>Vencimento :</strong> %c8_valida%</td>
+		</tr>
+	</tbody>
+</table>
+
+<table border="1" style="width: 100%; background-color: rgb(255,255,255)">
+	<tbody>
+		<tr>
+			<td style="height: 23px; text-align: center; width: 48px; background-color: #ffffff"><font face="Arial" size="1">Item </font></td>
+			<td style="height: 23px; text-align: center; width: 66px; background-color: #ffffff"><font face="Arial" size="1">N/Vosso Codigo </font></td>
+			<td style="height: 23px; text-align: center; width: 66px; background-color: #ffffff"><font face="Arial" size="1">Descri&ccedil;&atilde;o&nbsp;da Mercadoria</font></td>
+			<td style="height: 23px; text-align: center; width: 66px; background-color: #ffffff"><font face="Arial" size="1">Qtde </font></td>
+			<td style="height: 23px; text-align: center; width: 66px; background-color: #ffffff"><font face="Arial" size="1">UN </font></td>
+			<td style="height: 23px; text-align: center; width: 66px; background-color: #ffffff"><font face="Arial" size="1">ValorUnit&aacute;rio </font></td>
+			<td style="height: 23px; text-align: center; width: 66px; background-color: #ffffff"><font face="Arial" size="1">ValorTotal </font></td>
+			<td style="height: 23px; text-align: center; width: 66px; background-color: #ffffff"><font face="Arial" size="1">IPI </font></td>
+			<td style="height: 23px; text-align: center; width: 66px; background-color: #ffffff"><font face="Arial" size="1">Prazo</font></td>
+		</tr>
+		<tr>
+			<td align="center" height="21" width="48"><font face="Arial" size="1">%it.item% </font></td>
+			<td height="21" width="66"><font face="Arial" size="1">%it.produto%</font></td>
+			<td align="center" height="21" width="60"><font face="Arial" size="1">%it.descri% </font></td>
+			<td align="center" height="21" width="55"><input name="T11" size="6" type="text" value="%it.quant%" /><font face="Arial" size="1">&nbsp; </font></td>
+			<td align="center" height="21" width="42"><font face="Arial" size="1">%it.um% </font></td>
+			<td align="center" bgcolor="#ffffff" bordercolor="#ffffff" bordercolordark="#ffffff" bordercolorlight="#ffffff" height="21" width="90"><font face="Arial" size="1"><!--webbot bot="Validation" s-display-name="Valor Unitário" s-data-type="Number" s-number-separators=".," b-value-required="TRUE" i-maximum-length="12" s-validation-constraint="Greater than or equal to" s-validation-value="0" --><input maxlength="12" name="T1" onchange="solveUnitario(this);" size="12" type="text" value="%it.preco%" /></font></td>
+			<td align="center" height="21" width="90"><font face="Arial" size="1"><!--webbot bot="Validation" s-display-name="Valor Total" s-data-type="Number" s-number-separators=".," b-value-required="TRUE" i-maximum-length="12" s-validation-constraint="Greater than or equal to" s-validation-value="0" --><input maxlength="12" name="T2" onchange="solveTotal(this);" size="12" type="text" value="%it.valor%" /></font></td>
+			<td align="center" height="21" width="40"><font face="Arial" size="1"><!--webbot bot="Validation" s-display-name="IPI" s-data-type="Number" s-number-separators=".," b-value-required="TRUE" i-maximum-length="5" --><input maxlength="5" name="T3" onchange="calcIPI();" size="4" type="text" value="%it.ipi%" /></font></td>
+			<td align="center" height="21" width="40"><font face="Arial" size="1"><input name="T4" size="4" type="text" value="%it.prazo%" /></font></td>
+		</tr>
+	</tbody>
+</table>
+
+<table border="1" style="width: 100%">
+	<tbody>
+		<tr>
+			<td style="width: 35%"><font face="Arial" size="2">Local de Entrega&nbsp;</font></td>
+			<td><font face="Arial" size="2">Sub Total</font></td>
+			<td width="13%"><font face="Arial" size="1"><input maxlength="12" name="T10" onchange="calcTotalPedido();" size="12" type="text" value="%subtot%" /></font></td>
+			<td width="25%"><font face="Arial" size="2">&nbsp; Condi&ccedil;&atilde;o de Pagamento</font></td>
+		</tr>
+		<tr>
+			<td width="35%"><font face="Arial" size="2">%c8_filient%</font></td>
+			<td width="17%"><font face="Arial" size="2">Descontos</font></td>
+			<td width="13%"><font face="Arial" size="1"><input name="T6" onchange="calcTotalPedido();" size="12" type="text" value="%vldesc%" /></font></td>
+			<td width="25%"><font face="Arial" size="1">&nbsp; <select name="D4" size="1"><option selected="selected">%Pagamento%</option></select> &nbsp; </font></td>
+		</tr>
+		<tr>
+			<td width="35%"><font face="Arial" size="2">Local de Pagamento</font></td>
+			<td width="17%"><font face="Arial" size="2">Total do IPI</font></td>
+			<td width="13%"><font face="Arial" size="1"><input name="T7" onchange="calcTotalPedido();" size="12" type="text" value="%aliipi%" /></font></td>
+			<td width="25%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="35%"><font face="Arial" size="2">%rever%</font></td>
+			<td width="17%"><font face="Arial" size="2">Frete&nbsp;&nbsp; </font><font face="Arial" size="1"><select name="D3" size="1"><option selected="selected">%Frete%</option></select> &nbsp; </font></td>
+			<td width="13%"><font face="Arial" size="1"><input maxlength="12" name="T8" onchange="calcTotalPedido();" size="12" type="text" value="%valfre%" /></font></td>
+			<td width="25%"><font face="Arial" size="2">Condi&ccedil;&atilde;o de Reajuste</font></td>
+		</tr>
+		<tr>
+			<td width="35%"><font face="Arial" size="2">Contato no Fornecedor</font></td>
+			<td width="17%"><font face="Arial" size="2">TOTAL DO PEDIDO</font></td>
+			<td width="13%"><font face="Arial" size="1"><input maxlength="12" name="T9" size="12" type="text" value="%totped%" /></font></td>
+			<td width="25%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="4" width="35%"><font face="Arial" size="2">%C8_CONTATO%</font> </td>
+		</tr>
+		<tr>
+			<td rowspan="4" style="font-family: Arial; vertical-align: top; color: rgb(0,99,0); width: 22%"><strong style="color: rgb(0,99,0)"><i>ENVIA COTA&Ccedil;&Atilde;O</i></strong><strong><i><blink></blink></i></strong></td>
+			<td colspan="3" style="width: 40px"><font face="Arial"><input checked="checked" name="Aprovacao" type="radio" value="%Aprovacao%S" />Sim.</font></td>
+		</tr>
+		<tr>
+			<td colspan="3"><font face="Arial"><input name="Aprovacao" type="radio" value="%Aprovacao%N" />N&atilde;o. (Favor especificar motivo)</font><br />
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="78%"><font size="2"><textarea cols="67" name="S1" rows="4">%C8_OBS% </textarea> </font></td>
+		</tr>
+		<tr>
+			<td colspan="3" width="78%"><font face="Arial"><input name="B1" type="submit" value="Enviar" /> <input name="B2" type="reset" value="Limpar" /> </font></td>
+		</tr>
+	</tbody>
+</table>
+</form>
+</body>
+</html>
